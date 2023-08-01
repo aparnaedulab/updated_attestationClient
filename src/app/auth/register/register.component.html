@@ -24,13 +24,13 @@
         <label for="input-name">Gender:</label>
 
         <div class="radiobtn">
-            <input class="ra" type="radio" id="radio-1" name="group" />
+            <input class="ra" value="male" type="radio" id="radio-1" name="group" />
             <label class="radio" for="radio-1"></label>
             <label class="lb" for="radio-1">Male</label>
-            <input class="ra" type="radio" id="radio-2" name="group" />
+            <input class="ra" value="female" type="radio" id="radio-2" name="group" />
             <label class="radio" for="radio-2"></label>
             <label class="lb" for="radio-2">Female</label>
-            <input class="ra" type="radio" id="radio-3" name="group" />
+            <input class="ra" value="other" type="radio" id="radio-3" name="group" />
             <label class="radio" for="radio-3"></label>
             <label class="lb" for="radio-3">Others</label>
         </div>
@@ -112,6 +112,7 @@
         </div>
     </div>
 </div>
+
 <p-dialog [(visible)]="displayNo1" [modal]="true" [responsive]="true">
     <p-header>
         <h2>Verify OTP</h2>
