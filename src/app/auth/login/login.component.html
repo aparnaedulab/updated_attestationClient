@@ -1,7 +1,5 @@
 <div class="bgimg">
-  <div style="background-color: #1d4db67b; height: 100%; width: 100%; display: flex;
-  justify-content: center;
-  align-items: center;">
+  <div class="bgb">
     <div class="mcr">
       <div class="row" style="padding: 20px;">
         <h6 class="col-md-4">New User ? <a href="">Register</a></h6>
@@ -13,7 +11,7 @@
       
       <div class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <h1>Log In</h1>
-        <h5>Welcome to Mumbai University Online Attestation !<br> Log in with your email.</h5>
+
         <br>
         <h6 class="label">Email address:</h6>
         <input type="email" class="form-control" id="userName" formControlName="userName" placeholder="Enter Username">
@@ -35,11 +33,9 @@
           </div>
           <h6><a style="float: right; cursor: pointer" cFormCheckLabel for="checkOne" (click)="forgotPassword()">forgot
               password ?</a></h6>
-        </div><br>
-        <button type="submit" (click)="onSubmit()">Login</button>
+        </div>
+        <button type="submit" (click)="onSubmit()">Login</button><br>
         <app-loader *ngIf="loader"></app-loader>
-        <br>
-        <h5 class="register">Don't have an account? <a href="">Register</a></h5>
       </div>
     </div>
   </div>
