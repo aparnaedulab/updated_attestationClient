@@ -37,6 +37,7 @@
               password ?</a></h6>
         </div><br>
         <button type="submit" (click)="onSubmit()">Login</button>
+        <app-loader *ngIf="loader"></app-loader>
         <br>
         <h5 class="register">Don't have an account? <a href="">Register</a></h5>
       </div>

@@ -384,4 +384,14 @@ export class ApiService {
   getwesdetails(wesno: any, email: any, name: any, lastname: any) {
     return this.httpClient.post(`${this.baseUrl}/admin/getWes_details`, { "wesno": wesno, "email": email, "name": name, "lastname": lastname })
   }
+
+  /**get Notification Data */
+  getNotification() {
+    return this.httpClient.get(`${this.baseUrl}/student/getNotification`);
+  }
+
+  /**make mark as read user notification */
+  markAsRead() {
+    return this.httpClient.post(`${this.baseUrl}/student/markAsRead`,{})
+  }
 }    
