@@ -96,6 +96,7 @@ export class NewAttestationComponent implements OnInit {
   getUserEducation() {
     
     this.api.getAppliedUserDetail().subscribe((data: any) => {
+      
         this.educationalDetails =  data['data'].educationalDetails;
         this.instructionalDetails = data['data'].instructionalField;
         this.curriculumDetails = data['data'].curriculum;
@@ -104,6 +105,9 @@ export class NewAttestationComponent implements OnInit {
         this.CompetencyLetter = data['data'].CompetencyLetter;
         this.LetterforNameChange = data['data'].LetterforNameChange;
         this.phd =  data['data'].isphd
+
+      console.log('NNNNNNNNNNNNNNNNNNNNNNN',this.instructionalDetails);
+
     })
   }
   checktabs(event: any){

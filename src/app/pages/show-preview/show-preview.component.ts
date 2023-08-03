@@ -93,6 +93,7 @@ export class ShowPreviewComponent {
     return new File([blob], name, { type: blob.type });
   }
   saveimage() {
+    console.log('saveimagesaveimage')
     // event: any ,type: any ,coursename : any ,collegename : any , collegeid : any,faculty : any,education_type: any,patteren:any
     const fileUrl = this.dataurl(this.croppedImage, "11.jpeg")
     // if(this.type == 'marklist'){

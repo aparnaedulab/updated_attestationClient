@@ -112,6 +112,7 @@ import { ShowPreviewComponent } from '../pages/show-preview/show-preview.compone
 import { ChangePasswordComponent } from './dailogComponents/change-password.component'; 
 import { PasswordModule } from 'primeng/password';
 import { BadgeModule } from 'primeng/badge';
+import { PaymentNotesComponent } from './dialog/payment-notes/payment-notes.component';
 
 @NgModule({
   declarations: [
@@ -173,6 +174,7 @@ import { BadgeModule } from 'primeng/badge';
     ViewSubAdminRolesComponent,
     ShowPreviewComponent,
     ChangePasswordComponent, 
+    PaymentNotesComponent,
   ],
   imports: [
     CommonModule, 

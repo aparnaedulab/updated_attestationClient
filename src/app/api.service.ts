@@ -265,9 +265,9 @@ export class ApiService {
     return this.httpClient.get(`${this.baseUrl}/admin/getDownloadExcel?startDate=${startDate}&endDate=${endDate}&type=${type}&tracker=${tracker}&status=${status}`);
   }
 
-  getDownloadExcelBySaveAs(filepath: any) {
+  getDownloadBySaveAs(filepath: any) {
     let headers = new HttpHeaders();
-    return this.httpClient.get(`${this.baseUrl}/admin/getDownloadExcel?filepath=${filepath}`, { headers: headers, responseType: 'blob' }).pipe(map((res: any) => {
+    return this.httpClient.get(`${this.baseUrl}/admin/getDownloadBySaveAs?filepath=${filepath}`, { headers: headers, responseType: 'blob' }).pipe(map((res: any) => {
       return new Blob([res], { type: 'application/pdf' });
     }));
   }
@@ -347,14 +347,13 @@ export class ApiService {
   }
 
   /* To save the Payment Issue Details */
-  savepaymentissuedata(data: any, formData: any) {
-    console.log('formData', formData)
-    return this.httpClient.post(`${this.baseUrl}/student/savePaymentIssueData?data=${data}`, formData);
+  savepaymentissuedata(data: any) {
+    return this.httpClient.post(`${this.baseUrl}/student/savePaymentIssueData`, { "data": data });
   }
 
   /* To get the Payment Issue Details */
-  getpaymentissuedata() {
-    return this.httpClient.get(`${this.baseUrl}/student/getPaymentIssueData`);
+  getpaymentissuedata(user_type: any, tracker: any) {
+    return this.httpClient.get(`${this.baseUrl}/student/getPaymentIssueData?user_type=${user_type}&tracker=${tracker}`);
   }
   /* To set userid in backend */
   setuserId(token: any) {
@@ -392,6 +391,14 @@ export class ApiService {
 
   /**make mark as read user notification */
   markAsRead() {
-    return this.httpClient.post(`${this.baseUrl}/student/markAsRead`,{})
+    return this.httpClient.post(`${this.baseUrl}/student/markAsRead`, {})
+  }
+
+  getDownloadPaymentReceipt(app_id: any) {
+    return this.httpClient.get(`${this.baseUrl}/api/student/getDownloadPaymentReceipt?app_id=${app_id}`)
+  }
+
+  updatePaymentNotes(notes_data: any, user_id: any, tracker: any, issue_id: any) {
+    return this.httpClient.post(`${this.baseUrl}/api/admin/updatePaymentNotes`, { "notes_data": notes_data, "user_id": user_id, "tracker": tracker, "issue_id": issue_id })
   }
 }    
