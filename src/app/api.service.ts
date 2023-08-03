@@ -252,8 +252,8 @@ export class ApiService {
     return this.httpClient.post(`${this.baseUrl}/admin/updateInstructionalAffiliation`, { "formData": formData, "user_id": user_id, "user_email": user_email, "purpose": purpose, "type": type, "id": id, "student_id": student_id, "student_app_id": student_app_id });
   }
 
-  ScanData(collegeid: any, education_type: any, patteren: any, faculty: any, app_id: number, value: string, formData: any) {
-    return this.httpClient.post(`${this.baseUrl}/student/ScanData?value=${value}&app_id=${app_id}&collegeid=${collegeid}&education_type=${education_type}&pattern=${patteren}&faculty=${faculty}`, formData);
+  ScanData(app_id: number, value: string, formData: any) {
+    return this.httpClient.post(`${this.baseUrl}/student/ScanData?value=${value}&app_id=${app_id}`, formData);
   }
 
   getUploadedDocuments(app_id: any) {
