@@ -1,114 +1,109 @@
-<div class="row mcr">
-    <div class="col-md-6 form">
+<div class="bgimg">
+    <div class="bgb">
+        <div class="mcr">
 
-        <div class="logo1">
-            <img src="../../../assets/IMG/UM Logo (632 × 505 px).svg">
-        </div>
-
-        <h1 style="text-align: center; color: DodgerBlue;">Register</h1>
-
-        <br>
-
-        <label for="input-name">Applicant First Name:</label>
-        <input type="text" placeholder="First Name">
-
-        <br>
-        <br>
-
-        <label for="input-name">Applicant Last Name:</label>
-        <input type="text" placeholder="Last Name">
-
-        <br>
-        <br>
-
-        <label for="input-name">Gender:</label>
-
-        <div class="radiobtn">
-            <input class="ra" value="male" type="radio" id="radio-1" name="group" />
-            <label class="radio" for="radio-1"></label>
-            <label class="lb" for="radio-1">Male</label>
-            <input class="ra" value="female" type="radio" id="radio-2" name="group" />
-            <label class="radio" for="radio-2"></label>
-            <label class="lb" for="radio-2">Female</label>
-            <input class="ra" value="other" type="radio" id="radio-3" name="group" />
-            <label class="radio" for="radio-3"></label>
-            <label class="lb" for="radio-3">Others</label>
-        </div>
-        <br>
-
-        <label for="input-email">Email Address:</label>
-        <input type="email" placeholder="Email address">
-
-        <br><br>
-
-        <label for="input-password">Password:</label>
-        <div style="position: relative; width: 100%;">
-            <input type="password" placeholder="Enter Password">
-            <div class="eye">
-                <i class="fa fa-eye" aria-hidden="true"></i>
-                <i class="fa fa-eye-slash" aria-hidden="true"></i>
-            </div>
-        </div>
-
-        <br>
-
-        <label for="input-re-password">Confirm Password:</label>
-        <div style="position: relative; width: 100%;">
-            <input type="password" placeholder="Enter Password">
-            <div class="eye">
-                <i class="fa fa-eye" aria-hidden="true"></i>
-                <i class="fa fa-eye-slash" aria-hidden="true"></i>
-            </div>
-        </div>
-
-        <br>
-
-        <div style="display: flex;justify-content: space-between;">
-            <label for="inputMobile">Country Code and Mobile number <span style="color:red;">*</span></label>
-            <div>
-                <input type="checkbox"><label for="">Same as WhatsApp No?</label>
-            </div>
-        </div>
-        <div class="number">
-            <select id="country" name="country">
-                <option>select country</option>
-                <option value="AF">Afghanistan</option>
-                <option value="AX">Aland Islands</option>
-                <option value="AL">Albania</option>
-                <option value="DZ">Algeria</option>
-                <option value="AS">American Samoa</option><i class="fa fa-eye"></i>
-                <option value="IN">India</option>
-            </select>
-            <input type="number">
-        </div>
-
-        <br><br>
-
-        <div class="Captcha">
-            <div></div>
-            <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/60/refresh--v1.png" alt="refresh--v1" />
-            <input type="text">
-        </div>
-        <br>
-
-        <div style="width: 100%; display: flex;justify-content: center;">
-            <button (click)="Register()">Proceed</button>
-        </div>
-
-        <h6 class="login1" aria-label="Sign in">
-            Already have an account? <a style="color:DodgerBlue;" href="">Login</a>
-        </h6>
-    </div>
-    <div class="col-md-6 about">
-        <div class="elip"></div>
-        <div class="aboutt">
-            <div class="logo">
-                <img src="../../../assets/IMG/UM Logo (632 × 505 px).svg" alt="logo">
+            <div class="row">
+                <h6 class="col-md-4">Already have an account ?<a href="">Login</a></h6>
+                <div class="col-md-4" style="height: 150px; overflow: hidden;">
+                    <img style="height: 200px; width: 100%; margin-top: -20px;"
+                        src="../../../assets/IMG/UM Logo (632 × 505 px).svg" alt="">
+                </div>
+                <h6 style="text-align: center;" class="col-md-4">English <img
+                        src="https://img.icons8.com/external-those-icons-fill-those-icons/15/external-down-arrows-those-icons-fill-those-icons-1.png"
+                        alt="external-down-arrows-those-icons-fill-those-icons-1" /></h6>
             </div>
 
-            <h4> Already have an account?
-                <a style="color:DodgerBlue;" href="">Login</a>
-            </h4>
+            <h1 style="text-align: center; color: DodgerBlue;">Register</h1>
+
+            <br>
+
+            <h6 for="input-name">Applicant First Name:</h6>
+            <input class="form-control" type="text" placeholder="First Name">
+
+            <br>
+            <br>
+
+            <h6 for="input-name">Applicant Last Name:</h6>
+            <input class="form-control" type="text" placeholder="Last Name">
+
+            <br>
+            <br>
+
+            <h6 for="input-name">Gender:</h6>
+
+            <div class="radiobtn">
+                <input class="ra" value="male" type="radio" id="radio-1" name="group" />
+                <label class="radio" for="radio-1"></label>
+                <h6 class="lb" for="radio-1">Male</h6>
+                <input class="ra" value="female" type="radio" id="radio-2" name="group" />
+                <label class="radio" for="radio-2"></label>
+                <h6 class="lb" for="radio-2">Female</h6>
+                <input class="ra" value="other" type="radio" id="radio-3" name="group" />
+                <label class="radio" for="radio-3"></label>
+                <h6 class="lb" for="radio-3">Others</h6>
+            </div>
+            <br>
+
+            <h6 for="input-email">Email Address:</h6>
+            <input class="form-control" type="email" placeholder="Email address">
+
+            <br><br>
+
+            <h6 for="input-password">Password:</h6>
+            <div style="position: relative; width: 100%;">
+                <input class="form-control" type="password" placeholder="Enter Password">
+                <div class="eye">
+                    <i class="fa fa-eye" aria-hidden="true"></i>
+                    <i class="fa fa-eye-slash" aria-hidden="true"></i>
+                </div>
+            </div>
+
+            <br>
+
+            <h6 for="input-re-password">Confirm Password:</h6>
+            <div style="position: relative; width: 100%;">
+                <input class="form-control" type="password" placeholder="Enter Password">
+                <div class="eye">
+                    <i class="fa fa-eye" aria-hidden="true"></i>
+                    <i class="fa fa-eye-slash" aria-hidden="true"></i>
+                </div>
+            </div>
+
+            <br>
+
+            <div style="display: flex;justify-content: space-between;">
+                <h6 for="inputMobile">Country Code and Mobile number <span style="color:red;">*</span></h6>
+                <div style="display: flex;">
+                    <input type="checkbox"><h6 for="" style="margin-left: 10px;">Same as WhatsApp No?</h6>
+                </div>
+            </div>
+            <div class="number">
+                <select id="country" name="country">
+                    <option>select country</option>
+                    <option value="AF">Afghanistan</option>
+                    <option value="AX">Aland Islands</option>
+                    <option value="AL">Albania</option>
+                    <option value="DZ">Algeria</option>
+                    <option value="AS">American Samoa</option><i class="fa fa-eye"></i>
+                    <option value="IN">India</option>
+                </select>
+                <input type="number">
+            </div>
+
+            <br><br>
+
+            <div class="Captcha">
+                <div></div>
+                <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/60/refresh--v1.png"
+                    alt="refresh--v1" />
+                <input type="text">
+            </div>
+            <br>
+
+            <div style="width: 100%; display: flex;justify-content: center;">
+                <button (click)="Register()">Proceed</button>
+            </div>
+
         </div>
     </div>
 </div>
