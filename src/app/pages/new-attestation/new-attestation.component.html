@@ -1,7 +1,7 @@
 
 <mat-card >
   <div>
-  <mat-stepper  (click)="checktabs(stepper.selectedIndex)"  orientation="horizontal" #stepper>
+  <mat-stepper (click)="checktabs(stepper.selectedIndex)"  orientation="horizontal" [linear]="true" #stepper  >
     <mat-step [stepControl]="firstForm" [completed]="tabcheck1">
       <ng-template matStepLabel >1st Steps</ng-template> 
       <div class="card">

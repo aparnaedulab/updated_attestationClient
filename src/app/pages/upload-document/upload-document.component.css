@@ -124,4 +124,27 @@ p-table td {
   /* Add your desired styles for <td> here */
   padding-left: 15px;
 }
+.tabs {
+  display: flex;
+}
 
+.tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  border-radius: 5px 5px 0 0;
+  background-color: #f0f0f0;
+  user-select: none;
+}
+
+.tab.active {
+  background-color: #fff;
+  border-bottom: 1px solid #fff;
+}
+
+.tab-content {
+  border: 1px solid #ccc;
+  border-radius: 0 0 5px 5px;
+  padding: 20px;
+}

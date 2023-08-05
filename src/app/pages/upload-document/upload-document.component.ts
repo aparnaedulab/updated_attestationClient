@@ -2,7 +2,7 @@ import { Component, OnInit, VERSION, Input, ViewChild ,Output} from '@angular/co
 import { ConfirmationService, MessageService, ConfirmEventType } from 'primeng/api';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { ImageViewComponent } from '../dailogComponents/image-view.component';
-import { config } from '../../../../config';
+import { environment } from '../../../environments/environment';
 import { AuthService } from 'src/app/auth.service';
 import { Token } from '@angular/compiler';
 import { FormArray, FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
@@ -27,6 +27,19 @@ import { MatDialog } from '@angular/material/dialog';
 export class UploadDocumentComponent implements OnInit {
   @ViewChild('tabGroup') tabGroup : any;
   @Output() selectedTabChange:EventEmitter<number> 
+  
+  selectedTab: string = 'educationalDetails_marksheet'; // Initialize to the default tab
+  selectedTab_educationalDetails: string = 'educationalDetails';
+  selectedTab_instructionalField: string = 'instructionalField';
+  selectedTab_affiliation: string = 'affiliation';
+  selectedTab_curriculum: string = 'curriculum';
+  selectedTab_gradToPer: string = 'CompetencyLetter';
+  selectedTab_CompetencyLetter: string = 'LetterforNameChange';
+  selectedTab_LetterforNameChange: string = 'NameChangeProof';// Initialize to the default tab
+
+  selectTab(tabName: string) {
+      this.selectedTab = tabName;
+  }
 
   ref: DynamicDialogRef;
   position: string;
@@ -42,11 +55,11 @@ export class UploadDocumentComponent implements OnInit {
   collegeList: any[] = [];
   collegeCourse: any[] = [];
   validateUploadOne: boolean = true;
-  markListUploadUrl = config.markListUploadUrl;
-  transUploadUrl = config.transUploadUrl;
-  curriculumUploadUrl = config.curriculumUploadUrl;
-  NameChangeLetterUrl = config.NameChangeLetterUrl;
-  CompetencyletterUploadUrl = config.CompetencyletterUploadUrl;
+  markListUploadUrl = environment.markListUploadUrl;
+  transUploadUrl = environment.transUploadUrl;
+  curriculumUploadUrl = environment.curriculumUploadUrl;
+  NameChangeLetterUrl = environment.NameChangeLetterUrl;
+  CompetencyletterUploadUrl = environment.CompetencyletterUploadUrl;
   namechangeletterdetails: any;
   selectedCollege: any;
   app_id_namechange: any;
@@ -143,7 +156,16 @@ export class UploadDocumentComponent implements OnInit {
       formsAffiliationPhd: this.fb.array([])
     })
 
-
+    this.api.getAppliedUserDetail().subscribe((data : any) =>{
+      const userApplied = (data as any)['data']; 
+      this.instructionalField = userApplied.instructionalField;
+      this.affiliation = userApplied.affiliation;
+      this.educationalDetails = userApplied.educationalDetails; 
+      this.CompetencyLetter = userApplied.CompetencyLetter;
+      this.curriculum = userApplied.curriculum;
+      this.gradToPer = userApplied.gradToPer;
+      this.LetterforNameChange = userApplied.LetterforNameChange;
+    }) 
   }
 
   ngOnInit() {
@@ -773,30 +795,33 @@ export class UploadDocumentComponent implements OnInit {
 
 
 checkStepper(){
-  this.api.checkstepper_inner(this.app_id).subscribe((response: any) => {
+  this.api.checkstepper_inner(this.app_id).subscribe((response: any) => {     
+    if(response['data'].tab1 == false){
+      this.selectedTab = 'tab1'
+    }
     if(response['data'].tab1 == true){
-      this.tabcheck1 = 1
+      this.selectedTab = 'tab2'
     }
      if(response['data'].tab2 == true){
-      this.tabcheck1 = 2
+      this.selectedTab = 'tab3'
     }
      if(response['data'].tab3 == true){
-      this.tabcheck1 = 3
+      this.selectedTab = 'tab4'
     }
      if(response['data'].tab4 == true){
-      this.tabcheck1 = 4
+      this.selectedTab = 'tab5'
     }
      if(response['data'].tab5 == true){
-      this.tabcheck1 = 5
+      this.selectedTab = 'tab6'
     }
      if(response['data'].tab6 == true){
-      this.tabcheck1 = 6
+      this.selectedTab = 'tab7'
     }
      if(response['data'].tab7 == true){
-      this.tabcheck1 = 7
+      this.selectedTab = 'tab8'
     }
      if(response['data'].tab8 == true){
-      this.tabcheck1 = 8
+      this.selectedTab = 'tab9'
     }
   })
   

@@ -43,6 +43,17 @@ export class NewAttestationComponent implements OnInit {
   curriculum: any;
   affiliationletter: any;
 
+  disableStepper() {
+    this.stepper.linear = false; // Disables linear navigation
+    this.stepper.steps.forEach(step => step.completed = true); // Marks all steps as completed
+  }
+
+  enableStepper() {
+    this.stepper.linear = true; // Enables linear navigation
+    this.stepper.reset(); // Resets the stepper to the initial state
+  }
+
+
   constructor(
     private router: Router,
     protected api: ApiService,
@@ -137,7 +148,8 @@ export class NewAttestationComponent implements OnInit {
         this.stepper.selectedIndex = 1;
       }
       if(this.tabcheck2 == true){
-        this.stepper.selectedIndex = 2
+        this.stepper.selectedIndex = 2;
+
       }
       if(this.tabcheck3 == true){
         this.stepper.selectedIndex = 3
@@ -155,7 +167,12 @@ export class NewAttestationComponent implements OnInit {
     });
   }
   nextStep() {
-    console.log("selectedIndex == " + this.stepper.selectedIndex);
+    this.checkStepper();
+    this.stepper.next();
+    this.router.navigateByUrl('/UploadDocumentComponent', { skipLocationChange: true }).then(() => {
+        this.router.navigate(['pages/attestation_page']);
+    });
+
   }
 
 }
