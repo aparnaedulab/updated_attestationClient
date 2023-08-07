@@ -113,6 +113,7 @@ import { ChangePasswordComponent } from './dailogComponents/change-password.comp
 import { PasswordModule } from 'primeng/password';
 import { BadgeModule } from 'primeng/badge';
 import { PaymentNotesComponent } from './dialog/payment-notes/payment-notes.component';
+import { LettersFormComponent } from './dailogComponents/letters-form.component';
 
 @NgModule({
   declarations: [
@@ -175,6 +176,7 @@ import { PaymentNotesComponent } from './dialog/payment-notes/payment-notes.comp
     ShowPreviewComponent,
     ChangePasswordComponent, 
     PaymentNotesComponent,
+    LettersFormComponent
   ],
   imports: [
     CommonModule, 

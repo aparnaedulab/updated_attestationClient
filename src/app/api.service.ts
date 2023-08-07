@@ -145,10 +145,10 @@ export class ApiService {
   getNameChangeData() {
     return this.httpClient.get(`${this.baseUrl}/student/getNameChangeData`);
   }
-  deleteInfo(type: string) {
-    return this.httpClient.delete(`${this.baseUrl}/student/deleteInfo?type=${type}`);
-  }
 
+  deleteInfo(type: string,doc_id:any) {
+    return this.httpClient.delete(`${this.baseUrl}/student/deleteInfo?type=${type}&id=${doc_id}`);
+  }
 
   getCollegeLists() {
     return this.httpClient.get(`${this.baseUrl}/student/getCollegeList`);
@@ -179,8 +179,8 @@ export class ApiService {
     return this.httpClient.post(`${this.baseUrl}/student/saveAffiliationData`, formData)
   }
 
-  getletterDetails(degrees: any) {
-    return this.httpClient.get(`${this.baseUrl}/student/getletterDetails?degrees=${degrees}`);
+  getletterDetails() {
+    return this.httpClient.get(`${this.baseUrl}/student/getletterDetails`);
   }
 
   getInstructionalForms() {

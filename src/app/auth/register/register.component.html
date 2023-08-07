@@ -3,7 +3,7 @@
         <div class="mcr">
 
             <div class="row">
-                <h6 class="col-md-4">Already have an account ?<a href="">Login</a></h6>
+                <h6 class="col-md-4">Already have an account ?<a routerLink="/login">Login</a></h6>
                 <div class="col-md-4" style="height: 150px; overflow: hidden;">
                     <img style="height: 200px; width: 100%; margin-top: -20px;"
                         src="../../../assets/IMG/UM Logo (632 × 505 px).svg" alt="">
@@ -107,6 +107,8 @@
         </div>
     </div>
 </div>
+<router-outlet></router-outlet>
+
 
 <p-dialog [(visible)]="displayNo1" [modal]="true" [responsive]="true">
     <p-header>

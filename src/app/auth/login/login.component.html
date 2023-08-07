@@ -2,7 +2,7 @@
   <div class="bgb">
     <div class="mcr">
       <div class="row" style="padding: 20px;">
-        <h6 class="col-md-4">New User ? <a href="">Register</a></h6>
+        <h6 class="col-md-4">New User ? <a routerLink="/register">Register</a></h6>
         <div class="col-md-4" style="height: 150px; overflow: hidden;">
           <img style="height: 200px; width: 100%; margin-top: -20px;" src="../../../assets/IMG/UM Logo (632 × 505 px).svg" alt="">
         </div>
@@ -40,6 +40,7 @@
     </div>
   </div>
 </div>
+<router-outlet></router-outlet>
 
 <p-dialog header="Verify OTP" [(visible)]="visible" [style]="{width: '50vw'}">
   <div>
