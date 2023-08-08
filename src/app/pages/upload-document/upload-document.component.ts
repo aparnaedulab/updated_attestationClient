@@ -418,6 +418,7 @@ export class UploadDocumentComponent implements OnInit {
         this.api.deleteInfo(type,doc_id).subscribe((data: any) => {
           if (data['status'] == 200) {
             this.messageService.add({ severity: 'info', summary: 'Error', detail: 'Data Deleted !' });
+            this.getLettersDetails();
           } else {
           }
         })
