@@ -36,6 +36,7 @@ export class UploadDocumentComponent implements OnInit {
   selectedTab_gradToPer: string = 'CompetencyLetter';
   selectedTab_CompetencyLetter: string = 'LetterforNameChange';
   selectedTab_LetterforNameChange: string = 'NameChangeProof';// Initialize to the default tab
+  stepcolor: any;
 
   selectTab(tabName: string) {
       this.selectedTab = tabName;
@@ -479,45 +480,11 @@ export class UploadDocumentComponent implements OnInit {
 
 
 checkStepper(){
-  this.api.checkstepper_inner(this.app_id).subscribe((response: any) => {  
- 
-    if(response['data'].tab7 == true){
-      if(this.LetterforNameChange == true){
-        this.selectedTab = 'tab8'
-      }
-    }
-    if(response['data'].tab6 == true){
-      if(this.CompetencyLetter == true){
-        this.selectedTab = 'tab7'
-      }
-    }
-    if(response['data'].tab5 == true){
-      if(this.gradToPer){
-        this.selectedTab = 'tab6'
-      }
-    }
-    if(response['data'].tab4 == true){
-      if(this.curriculum == true){
-        this.selectedTab = 'tab5'
-      }
-    }
-    if(response['data'].tab3 == true){
-      if(this.affiliation == true){
-        this.selectedTab = 'tab4'
-      }
-    }
-    if(response['data'].tab2 == true){
-      if(this.instructionalField == true){  
-        this.selectedTab = 'tab3'
-      }else{
-      }
-    }
-    if(response['data'].tab1 == true){
-      this.selectedTab = 'tab2'
-    }
-    if(response['data'].tab1 == false){
-      this.selectedTab = 'tab1'
-    }
+  this.api.checkstepper_inner(this.app_id).subscribe((response: any) => {
+    this.selectedTab = response['data'];
+    this.stepcolor =response['step']
+
+    
   })
 }
 
