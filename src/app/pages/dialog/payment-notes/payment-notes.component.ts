@@ -1,5 +1,4 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { MessageService } from 'primeng/api';
 import { DynamicDialogRef, DynamicDialogConfig} from 'primeng/dynamicdialog';
 import { ApiService } from 'src/app/api.service';
 
@@ -22,7 +21,6 @@ import { ApiService } from 'src/app/api.service';
   `,
   styles: [
   ],
-  providers:[MessageService]
 })
 export class PaymentNotesComponent {
   isDisabled: boolean = true;
@@ -38,7 +36,6 @@ export class PaymentNotesComponent {
     public ref: DynamicDialogRef,
     public config: DynamicDialogConfig, 
     protected api: ApiService,
-    private messageService: MessageService,
   ){}
 
   ngOnInit(): void{

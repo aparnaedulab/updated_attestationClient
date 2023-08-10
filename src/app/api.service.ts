@@ -212,8 +212,8 @@ export class ApiService {
     return this.httpClient.get(`${this.baseUrl}/student/getHrdData?hrd_id=${hrd_id}&purpose_name=${purpose_name}&app_id=${app_id}`);
   }
 
-  getActivityTrackerList(student_id: any) {
-    return this.httpClient.get(`${this.baseUrl}/admin/getActivityTrackerList?student_id=${student_id}`);
+  getActivityTrackerList(student_id: any, offset: any, limit: any, globalSearch: any) {
+    return this.httpClient.get(`${this.baseUrl}/admin/getActivityTrackerList?student_id=${student_id}&offset=${offset}&limit=${limit}&globalSearch=${globalSearch}`);
   }
 
   getStudentList(id: any, user_type: any, name: any, email: any, globalSearch: any, offset: any, limit: any) {
@@ -395,10 +395,10 @@ export class ApiService {
   }
 
   getDownloadPaymentReceipt(app_id: any) {
-    return this.httpClient.get(`${this.baseUrl}/api/student/getDownloadPaymentReceipt?app_id=${app_id}`)
+    return this.httpClient.get(`${this.baseUrl}/student/getDownloadPaymentReceipt?app_id=${app_id}`)
   }
 
   updatePaymentNotes(notes_data: any, user_id: any, tracker: any, issue_id: any) {
-    return this.httpClient.post(`${this.baseUrl}/api/admin/updatePaymentNotes`, { "notes_data": notes_data, "user_id": user_id, "tracker": tracker, "issue_id": issue_id })
+    return this.httpClient.post(`${this.baseUrl}/admin/updatePaymentNotes`, { "notes_data": notes_data, "user_id": user_id, "tracker": tracker, "issue_id": issue_id })
   }
 }    

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { config } from '../../../../config';
 import { ApiService } from 'src/app/api.service';
@@ -9,6 +9,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { PaymentNotesComponent } from '../dialog/payment-notes/payment-notes.component';
 import { ShowPreviewComponent } from '../show-preview/show-preview.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Table } from 'primeng/table';
 
 @Component({
   selector: 'app-payment-issue',
@@ -32,12 +33,20 @@ export class PaymentIssueComponent {
   resolvedData: any[] = [];
   rejectData: any[] = [];
   issuedata: any[] = [];
-  issuseCount: any;
+  issuseCount: number = 0;
   ref: DynamicDialogRef;
   user_type: any;
   paymentIssueData: any;
   filterText: string = "";
   filename: any;
+  minDate: any;
+  maxDate: any;
+  start_date: any;
+  @ViewChild('dt1') dt1: Table;
+  @ViewChild('dt2') dt2: Table;
+  @ViewChild('dt3') dt3: Table;
+  @ViewChild('local') local!: ElementRef;
+  issuselength: number;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -51,6 +60,9 @@ export class PaymentIssueComponent {
   ngOnInit() {
     this.token = JSON.parse(localStorage.getItem('user')!);
     this.user_type = this.token.data.user.user_type;
+
+    let today = new Date();
+    this.maxDate = new Date(today);
 
     this.api.getpaymentissuedata(this.user_type, '').subscribe((data: any) => {
       if (data['status'] == 200) {
@@ -88,6 +100,25 @@ export class PaymentIssueComponent {
     this.showEditPreview();
   }
 
+  handleFilterChange(type: any) {
+    if(type == 'inprocess'){
+      this.dt1?.filterGlobal(this.filterText, 'contains');
+      console.log("this.dt1", this.dt1);
+      console.log("this.dt1._totalRecords>>", this.dt1._totalRecords)
+      this.issuselength = this.dt1._totalRecords;
+    }else if(type == 'resolved'){
+      this.dt2?.filterGlobal(this.filterText, 'contains');
+      console.log("this.dt2", this.dt2);
+      console.log("this.dt2._totalRecords>>", this.dt2._totalRecords)
+      this.issuselength = this.dt2._totalRecords;
+    }else{
+      this.dt3?.filterGlobal(this.filterText, 'contains');
+      console.log("this.dt3", this.dt3);
+      console.log("this.dt3._totalRecords>>", this.dt3._totalRecords)
+      this.issuselength = this.dt3._totalRecords;
+    }
+  }
+
   imageCropped(event: ImageCroppedEvent): void {
     this.croppedImage = event.base64;
     this.height = event.height
@@ -114,14 +145,14 @@ export class PaymentIssueComponent {
     return new File([blob], name, { type: blob.type });
   }
   uploadDetails() {
-    const fileUrl = this.dataurl(this.croppedImage, "11.jpeg", this.height, this.width)
+    // const fileUrl = this.dataurl(this.croppedImage, "11.jpeg", this.height, this.width)
 
-    this.file = fileUrl
-    const formData = new FormData();
-    formData.append('file', this.file);
-    console.log("this.file", this.file);
+    // this.file = fileUrl
+    // const formData = new FormData();
+    // formData.append('file', this.file);
+    // console.log("this.file", this.file);
 
-    formData.append('user_id', this.user_id);
+    // formData.append('user_id', this.user_id);
     var data: any = {
       "emailCtrl": this.registerForm.controls['emailCtrl'].value,
       "bankrefCtrl": this.registerForm.controls['bankrefCtrl'].value,
@@ -137,7 +168,8 @@ export class PaymentIssueComponent {
       this.api.savepaymentissuedata(data).subscribe((data: any) => {
 
         if (data['status'] == 200) {
-          this.onTabChange('')
+          // this.registerForm.reset();
+          this.onTabChange('');
         }
       })
     }
@@ -207,7 +239,11 @@ export class PaymentIssueComponent {
     });
   }
 
-  filterData() { }
+  clear(table: Table, event: any) {
+    table.clear();
+    this.local.nativeElement.value = '';
+    this.onTabChange(event);
+  }
 
   onChange(event: any, notes: any, user_id: any, id: any) {
     this.confirmationService.confirm({
@@ -257,7 +293,7 @@ export class PaymentIssueComponent {
       }
     }).afterClosed().subscribe(result => {
       this.filename = result
-      this.onTabChange('',)
+      this.onTabChange('')
 
     });
   }

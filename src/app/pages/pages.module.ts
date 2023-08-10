@@ -62,7 +62,6 @@ import { AddHrdDialogComponent } from './dialog/add-hrd-dialog/add-hrd-dialog.co
 import { CartComponent } from './cart/cart.component';
 import { TableModule } from 'primeng/table';
 import { PreviewApplicationComponent } from './preview-application/preview-application.component';
-import { OpenImgPdfDialogComponent } from './dialog/open-img-pdf-dialog/open-img-pdf-dialog.component';
 import { DividerModule } from 'primeng/divider';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { ButtonModule } from 'primeng/button';
@@ -148,7 +147,6 @@ import { LettersFormComponent } from './dailogComponents/letters-form.component'
     AddHrdDialogComponent,
     CartComponent,
     PreviewApplicationComponent,
-    OpenImgPdfDialogComponent,
     AdminDashboardComponent,
     MyApplicationsComponent,
     StudentManagementComponent,
