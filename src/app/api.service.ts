@@ -401,4 +401,16 @@ export class ApiService {
   updatePaymentNotes(notes_data: any, user_id: any, tracker: any, issue_id: any) {
     return this.httpClient.post(`${this.baseUrl}/admin/updatePaymentNotes`, { "notes_data": notes_data, "user_id": user_id, "tracker": tracker, "issue_id": issue_id })
   }
+  
+  getPreApplication(){
+    return this.httpClient.get(`${this.baseUrl}/student/getPreApplication`);
+  }
+
+  getPostApplication(){
+    return this.httpClient.get(`${this.baseUrl}/student/getPostApplication`);
+  }
+
+  getEmailActivity(globalSearch:any,limit:number,offset:number){
+    return this.httpClient.get(`${this.baseUrl}/admin/getEmailActivityTracker?globalSearch=${globalSearch}&limit=${limit}&offset=${offset}`);
+  }
 }    
