@@ -113,6 +113,13 @@ import { PasswordModule } from 'primeng/password';
 import { BadgeModule } from 'primeng/badge';
 import { PaymentNotesComponent } from './dialog/payment-notes/payment-notes.component';
 import { LettersFormComponent } from './dailogComponents/letters-form.component';
+// import { TranslateLoader, TranslateModule } from '@ngx-translate/core'; 
+// import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+// import { HttpClientModule, HttpClient } from '@angular/common/http';
+
+// export function HttpLoaderFactory(http: HttpClient) {
+//   return new TranslateHttpLoader(http);
+// }
 
 @NgModule({
   declarations: [
@@ -251,7 +258,15 @@ import { LettersFormComponent } from './dailogComponents/letters-form.component'
     MatNativeDateModule,
     MatTableModule,
     PasswordModule,
-    BadgeModule
+    BadgeModule,
+    // HttpClientModule,
+    // TranslateModule.forRoot({
+    //   loader: {
+    //     provide: TranslateLoader,
+    //     useFactory: HttpLoaderFactory,
+    //     deps: [HttpClient]
+    //   }
+    // }),
   ],
   providers:[AuthGuard]
 })

@@ -16,7 +16,7 @@ import { CardModule } from 'primeng/card';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { LoaderComponent } from '../loader/loader.component'; 
 import { RouterModule, Routes } from '@angular/router';
-
+import { PasswordModule } from 'primeng/password';
 
 // import { AuthInterceptor } from '../auth-interceptor';
 // import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -44,7 +44,8 @@ import { RouterModule, Routes } from '@angular/router';
     CardModule,
     InputTextModule,
     ConfirmDialogModule,
-    RouterModule
+    RouterModule,
+    PasswordModule
   ],
   exports : [
     RouterModule, 

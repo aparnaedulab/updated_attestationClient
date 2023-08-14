@@ -47,7 +47,7 @@ export class ApiService {
 
   RegisterValues(data: any) {
     console.log("REGISTERRRRR");
-    return this.httpClient.post(`${this.baseUrl}/auth/register`, { data: data });
+    return this.httpClient.post(`${this.baseUrl}/student/register`, { data: data });
   }
 
   ForgotPassword(email: any) {
@@ -412,5 +412,9 @@ export class ApiService {
 
   getEmailActivity(globalSearch:any,limit:number,offset:number){
     return this.httpClient.get(`${this.baseUrl}/admin/getEmailActivityTracker?globalSearch=${globalSearch}&limit=${limit}&offset=${offset}`);
+  }
+
+  createCaptcha() {
+    return this.httpClient.get(`${this.baseUrl}/student/createCaptcha`)
   }
 }    
